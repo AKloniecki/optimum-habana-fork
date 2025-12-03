@@ -298,9 +298,10 @@ from .qwen2_vl import (
     GaudiQwen2VLDecoderLayer,
     GaudiQwen2VLForConditionalGeneration,
     GaudiQwen2VLModel,
+    GaudiQwen2VLTextModel,
     GaudiQwen2VLSdpaAttention,
     GaudiQwen2VLVisionBlock,
-    GaudiVisionSdpaAttention,
+#    GaudiVisionSdpaAttention,
 )
 from .qwen3 import (
     GaudiQwen3Attention,

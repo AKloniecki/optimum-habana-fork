@@ -138,7 +138,8 @@ slow_tests_text_generation_example_8x: test_installs install_deepspeed
 
 # Run image-to-text non-regression tests
 slow_tests_image_to_text_example: test_installs
-	python -m pytest tests/test_image_to_text_example.py -v -s --token $(TOKEN)
+	python -m pytest tests/test_image_to_text_example.py -m "(not x2) and (not x8)" -sxv -k test_image_to_text_bf16[Qwen/Qwen2-VL-7B-Instruct-1] --token ${TOKEN}
+
 
 slow_tests_image_to_text_example_1x: test_installs
 	python -m pytest tests/test_image_to_text_example.py -m "(not x2) and (not x8)" -v -s --token $(TOKEN)

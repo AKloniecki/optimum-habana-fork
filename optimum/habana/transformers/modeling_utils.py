@@ -177,6 +177,7 @@ from .models import (
     GaudiQwen2VLDecoderLayer,
     GaudiQwen2VLForConditionalGeneration,
     GaudiQwen2VLModel,
+    GaudiQwen2VLTextModel,
     GaudiQwen2VLSdpaAttention,
     GaudiQwen2VLVisionBlock,
     GaudiQwen3Attention,
@@ -210,7 +211,7 @@ from .models import (
     GaudiT5ForConditionalGeneration,
     GaudiVideoLlavaForConditionalGeneration,
     GaudiVideoLlavaModel,
-    GaudiVisionSdpaAttention,
+#    GaudiVisionSdpaAttention,
     GaudiWhisperAttention,
     GaudiWhisperDecoder,
     GaudiWhisperDecoderLayer,
@@ -751,17 +752,14 @@ def adapt_transformers_to_gaudi():
     )
 
     # Optimization for qwen2-vl Gaudi
-    transformers.models.qwen2_vl.modeling_qwen2_vl.VisionSdpaAttention = GaudiVisionSdpaAttention
     transformers.models.qwen2_vl.modeling_qwen2_vl.Qwen2VLVisionBlock = GaudiQwen2VLVisionBlock
-    transformers.models.qwen2_vl.modeling_qwen2_vl.Qwen2VisionTransformerPretrainedModel = (
-        GaudiQwen2VisionTransformerPretrainedModel
-    )
-    transformers.models.qwen2_vl.modeling_qwen2_vl.Qwen2VLSdpaAttention = GaudiQwen2VLSdpaAttention
+    transformers.models.qwen2_vl.modeling_qwen2_vl.Qwen2VLAttention = GaudiQwen2VLSdpaAttention
+    transformers.models.qwen2_vl.modeling_qwen2_vl.Qwen2VLDecoderLayer = GaudiQwen2VLDecoderLayer
+    transformers.models.qwen2_vl.modeling_qwen2_vl.Qwen2VisionTransformerPretrainedModel = GaudiQwen2VisionTransformerPretrainedModel
     transformers.models.qwen2_vl.modeling_qwen2_vl.Qwen2VLDecoderLayer = GaudiQwen2VLDecoderLayer
     transformers.models.qwen2_vl.modeling_qwen2_vl.Qwen2VLModel = GaudiQwen2VLModel
-    transformers.models.qwen2_vl.modeling_qwen2_vl.Qwen2VLForConditionalGeneration = (
-        GaudiQwen2VLForConditionalGeneration
-    )
+    transformers.models.qwen2_vl.modeling_qwen2_vl.Qwen2VLTextModel = GaudiQwen2VLTextModel
+    transformers.models.qwen2_vl.modeling_qwen2_vl.Qwen2VLForConditionalGeneration = GaudiQwen2VLForConditionalGeneration
 
     # Optimization for qwen2.5-vl on Gaudi
     transformers.models.qwen2_5_vl.modeling_qwen2_5_vl.Qwen2_5_VLVisionBlock = GaudiQwen2_5_VLVisionBlock
