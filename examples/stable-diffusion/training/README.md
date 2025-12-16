@@ -95,7 +95,7 @@ Then proceed to training with command:
 
 ```bash
 PT_HPU_LAZY_MODE=1 python train_controlnet.py \
-   --pretrained_model_name_or_path=stabilityai/stable-diffusion-2-1 \
+   --pretrained_model_name_or_path=sd2-community/stable-diffusion-2-1 \
    --output_dir=/tmp/stable_diffusion2_1 \
    --dataset_name=fusing/fill50k \
    --resolution=512 \
@@ -120,7 +120,7 @@ After training completes, you can use `text_to_image_generation.py` sample to ru
 
 ```bash
 PT_HPU_LAZY_MODE=1 python ../text_to_image_generation.py \
-    --model_name_or_path stabilityai/stable-diffusion-2-1 \
+    --model_name_or_path sd2-community/stable-diffusion-2-1 \
     --controlnet_model_name_or_path /tmp/stable_diffusion2_1 \
     --prompts "pale golden rod circle with old lace background" \
     --control_image "./cnet/conditioning_image_1.png" \
@@ -226,7 +226,7 @@ To launch the multi-card Stable Diffusion training, use:
 
 ```bash
 PT_HPU_LAZY_MODE=1 python ../../gaudi_spawn.py --world_size 8 --use_mpi train_dreambooth.py \
-    --pretrained_model_name_or_path="stabilityai/stable-diffusion-2-1"  \
+    --pretrained_model_name_or_path="sd2-community/stable-diffusion-2-1"  \
     --instance_data_dir="dog" \
     --output_dir="dog_sd" \
     --class_data_dir="path-to-class-images" \
@@ -265,7 +265,7 @@ To run the multi-card training, use:
 
 ```bash
 PT_HPU_LAZY_MODE=1 python ../../gaudi_spawn.py --world_size 8 --use_mpi train_dreambooth.py \
-    --pretrained_model_name_or_path="stabilityai/stable-diffusion-2-1"  \
+    --pretrained_model_name_or_path="sd2-community/stable-diffusion-2-1"  \
     --instance_data_dir="dog" \
     --output_dir="dog_sd" \
     --class_data_dir="path-to-class-images" \
@@ -310,7 +310,7 @@ After training completes, you can use `text_to_image_generation.py` sample for i
 
 ```bash
 PT_HPU_LAZY_MODE=1 python ../text_to_image_generation.py \
-    --model_name_or_path stabilityai/stable-diffusion-2-1  \
+    --model_name_or_path sd2-community/stable-diffusion-2-1  \
     --unet_adapter_name_or_path dog_sd/unet \
     --prompts "a sks dog" \
     --num_images_per_prompt 5 \

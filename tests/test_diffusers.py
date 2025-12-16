@@ -793,7 +793,7 @@ class GaudiStableDiffusionPipelineTester(TestCase):
         ]
         num_images_per_prompt = 28
         batch_size = 7
-        model_name = "stabilityai/stable-diffusion-2-1"
+        model_name = "sd2-community/stable-diffusion-2-1"
         scheduler = GaudiDDIMScheduler.from_pretrained(model_name, subfolder="scheduler")
         pipeline = GaudiStableDiffusionPipeline.from_pretrained(
             model_name,
